@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+  <class name="OptimizePoC.Models.ShipmentLoad, OptimizePoC.Models" table="ShipmentLoad">
+    <id name="ShipmentRequestId" column="ShipmentRequestId" type="Int32">
+      <generator class="assigned" />
+    </id>
+    <many-to-many name="Request" column="RequestId"/>
+    <many-to-many name="Shipment" column="ShipmentId"/>
+  </class>
+</hibernate-mapping>
