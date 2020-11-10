@@ -12,5 +12,6 @@ namespace OptimizePoC.DataSource
         IList<Request> GetRequests();
         Request GetRequest(int orderId);
         string CreateRequest(int OriginId, int DestinationId);
+        IList<Request> GetAvailableRequestList();
     }
 }

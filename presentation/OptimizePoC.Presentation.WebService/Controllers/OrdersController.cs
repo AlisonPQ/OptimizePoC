@@ -11,11 +11,11 @@ using System.Web.Http.OData;
 
 namespace OptimizePoC.Presentation.WebService.Controllers
 {
-    public class RequestsController : ApiController
+    public class OrdersController : ApiController
     {
         private IRequestDomain requestDomain;
 
-        public RequestsController()
+        public OrdersController()
         {
             requestDomain = RequestImpl.Build();
         }

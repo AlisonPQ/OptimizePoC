@@ -20,6 +20,12 @@ namespace OptimizePoC.Domain.Impl
         {
             return new ShipmentImpl();
         }
+
+        public string Consolidate()
+        {
+            return shipmentDao.Consolidate();
+        }
+
         public Shipment GetShipment(int id)
         {
             return shipmentDao.GetShipment(id);

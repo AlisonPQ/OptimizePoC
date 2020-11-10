@@ -17,15 +17,15 @@ namespace OptimizePoC.DataSource.SQLServer
                 using (var session = sessionFactory.OpenSession()) { }
                 using (var tx = session.BeginTransaction())
                 {
-                    Request tmp = new Request
+                    Request request = new Request
                     {
                         Origin = new Location { LocationId = OriginId },
                         Destination = new Location { LocationId = DestinationId },
                         Status = 0,
                         CreatedAt = DateTime.UtcNow,
                         UpdatedAt = DateTime.UtcNow
-                };
-                    session.Save(tmp);
+                    };
+                    session.Save(request);
                     tx.Commit();
                 }
             }
@@ -66,5 +66,35 @@ namespace OptimizePoC.DataSource.SQLServer
                 throw ex;
             }
         }
+
+        public IList<Request> GetAvailableRequestList()
+        {
+            try
+            {
+                IList<Request> requests = new List<Request>();
+                using (var session = sessionFactory.OpenSession()) { }
+
+                using (var tx = session.BeginTransaction())
+                {
+                    requests = session.QueryOver<Request>()
+                        .WhereRestrictionOn(x => x.Status).IsLike(0).List<Request>();
+                }
+                return RequestCast.CastingRequestList(requests);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public Boolean IsEqualLocation(Request request1, Request request2)
+        {
+            if(request1.Origin.LocationId == request2.Origin.LocationId
+                && request1.Origin.LocationId == request2.Origin.LocationId)
+                return true;
+            return false;
+        }
+
+        
     }
 }

@@ -11,5 +11,6 @@ namespace OptimizePoC.Domain
     {
         IList<Shipment> GetShipments();
         Shipment GetShipment(int id);
+        string Consolidate();
     }
 }

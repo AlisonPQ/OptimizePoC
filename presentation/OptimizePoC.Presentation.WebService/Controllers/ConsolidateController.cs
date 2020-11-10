@@ -1,6 +1,5 @@
 ﻿using OptimizePoC.Domain;
 using OptimizePoC.Domain.Impl;
-using OptimizePoC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,27 +10,17 @@ using System.Web.Http.OData;
 
 namespace OptimizePoC.Presentation.WebService.Controllers
 {
-    public class ShipmentsController : ApiController
+    public class ConsolidateController : ApiController
     {
         private IShipmentDomain shipmentDomain;
 
-        public ShipmentsController()
+        public ConsolidateController()
         {
             shipmentDomain = ShipmentImpl.Build();
         }
-
-        [EnableQuery]
-        public Shipment Get(int id)
+        public string Consolidate()
         {
-            var response = shipmentDomain.GetShipment(id);
-            return response;
-        }
-
-        [EnableQuery]
-        public IList<Shipment> Get()
-        {
-            var response = shipmentDomain.GetShipments();
-            return response;
+            return shipmentDomain.Consolidate();
         }
     }
 }
