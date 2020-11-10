@@ -9,5 +9,6 @@ namespace OptimizePoC.Models
     public class Shipment
     {
         public virtual int ShipmentId { get; set; }
+        public virtual IList<Request> Requests { get; set; }
     }
 }

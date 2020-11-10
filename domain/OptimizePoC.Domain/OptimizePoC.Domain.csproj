@@ -44,6 +44,8 @@
     <Compile Include="ICityDomain.cs" />
     <Compile Include="IHealthInfoDomain.cs" />
     <Compile Include="ILocationDomain.cs" />
+    <Compile Include="IRequestDomain.cs" />
+    <Compile Include="IShipmentDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

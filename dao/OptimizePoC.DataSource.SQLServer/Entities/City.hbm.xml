@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
   <class name="OptimizePoC.Models.City, OptimizePoC.Models" table="City">
-    <id name="Id" column="Id" type="Int32">
+    <id name="CityId" column="CityId" type="Int32">
       <generator class="assigned" />
     </id>
     <property name="Name" column="Name" type="String" length="50" />
-    
+    <!--
     <set name="Locations" table="Location">
       <key column ="CityId"/>
       <one-to-many class="OptimizePoC.Models.Location" />
     </set>
+    -->
   </class>
 </hibernate-mapping>

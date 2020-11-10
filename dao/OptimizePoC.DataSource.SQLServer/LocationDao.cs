@@ -1,15 +1,17 @@
-﻿using OptimizePoC.Models;
+﻿using OptimizePoC.DataSource.SQLServer.Cast;
+using OptimizePoC.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace OptimizePoC.DataSource.SQLServer
 {
     public class LocationDao : SessionFactory, ILocationDao
     {
-        public ICollection<Location> getLocations()
+        public IList<Location> getLocations()
         {
-            ICollection<Location> locations = new List<Location>();
+            IList<Location> locations = new List<Location>();
             using (var session = sessionFactory.OpenSession()) { }
 
             using (var tx = session.BeginTransaction())
@@ -17,7 +19,7 @@ namespace OptimizePoC.DataSource.SQLServer
                 locations = session.CreateCriteria<Location>().List<Location>();
                 tx.Commit();
             }
-            return locations;
+            return LocationCast.CastingLocationList(locations);
         }
     }
 }

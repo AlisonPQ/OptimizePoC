@@ -44,6 +44,8 @@
     <Compile Include="ICityDao.cs" />
     <Compile Include="IHealthInfoDao.cs" />
     <Compile Include="ILocationDao.cs" />
+    <Compile Include="IRequestDao.cs" />
+    <Compile Include="IShipmentDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

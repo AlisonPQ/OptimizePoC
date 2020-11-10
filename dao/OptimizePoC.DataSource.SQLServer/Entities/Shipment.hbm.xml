@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-  <class name="OptimizePoC.Models.Shipment, OptimizePoC.Models" table="City">
+  <class name="OptimizePoC.Models.Shipment, OptimizePoC.Models" table="Shipment">
     <id name="ShipmentId" column="ShipmentId" type="Int32">
       <generator class="assigned" />
     </id>
+    <bag name="Requests" table="ShipmentRequest">
+      <key column="ShipmentId"/>
+      <many-to-many class="OptimizePoC.Models.Request" column="RequestId"/>
+    </bag>
   </class>
 </hibernate-mapping>

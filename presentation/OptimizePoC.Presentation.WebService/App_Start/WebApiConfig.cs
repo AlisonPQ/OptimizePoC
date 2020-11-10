@@ -10,6 +10,7 @@ namespace OptimizePoC.Presentation.WebService
     {
         public static void Register(HttpConfiguration config)
         {
+
             // Web API configuration and 
             config.AddODataQueryFilter();
 
@@ -21,6 +22,15 @@ namespace OptimizePoC.Presentation.WebService
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+           /*
+           ODataModelBuilder builder = new ODataConventionModelBuilder();
+           builder.EntitySet<City>("cities");
+           config.MapODataServiceRoute(
+               routeName: "ODataRoute",
+               routePrefix: null,
+               model: builder.GetEdmModel());
+           */
         }
     }
 }

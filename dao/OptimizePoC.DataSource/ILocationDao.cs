@@ -1,10 +1,11 @@
 ﻿using OptimizePoC.Models;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace OptimizePoC.DataSource
 {
     public interface ILocationDao
     {
-        ICollection<Location> getLocations();
+        IList<Location> getLocations();
     }
 }

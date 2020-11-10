@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Web.Http.OData;
+using System.Linq;
 
 namespace OptimizePoC.Presentation.WebService.Controllers
 {
@@ -18,9 +19,10 @@ namespace OptimizePoC.Presentation.WebService.Controllers
         }
 
         [EnableQuery]
-        public ICollection<City> Get()
+        public IEnumerable<City> Get()
         {
-            return cityDomain.GetCityList();
+            var cities = cityDomain.GetCityList();
+            return cities;
         }
     }
 }

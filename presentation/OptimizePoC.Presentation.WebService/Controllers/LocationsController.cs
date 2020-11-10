@@ -4,6 +4,7 @@ using OptimizePoC.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -22,9 +23,10 @@ namespace OptimizePoC.Presentation.WebService.Controllers
         }
 
         [EnableQuery]
-        public ICollection<Location> Get()
+        public IList<Location> Get()
         {
-            return locationDomain.GetAllLocations();
+            var response = locationDomain.GetAllLocations();
+            return response;
         }
     }
 }

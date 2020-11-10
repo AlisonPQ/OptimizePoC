@@ -8,10 +8,11 @@ namespace OptimizePoC.Models
 {
     public class Request
     {
-        public int RequestId { get; set; }
-        public Location Destination { get; set; }
-        public Location Origin { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
+        public virtual int RequestId { get; set; }
+        public virtual Location Origin { get; set; }
+        public virtual Location Destination { get; set; }
+        public virtual int Status { get; set; }
+        public virtual DateTime CreatedAt { get; set; }
+        public virtual DateTime UpdatedAt { get; set; }
     }
 }

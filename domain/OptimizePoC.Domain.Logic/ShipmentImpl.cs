@@ -4,29 +4,30 @@ using OptimizePoC.Models;
 using Spring.Context;
 using Spring.Context.Support;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OptimizePoC.Domain.Impl
 {
-    public class LocationImpl : ILocationDomain
+    public class ShipmentImpl : IShipmentDomain
     {
         private static IApplicationContext ctx = ContextRegistry.GetContext();
-        private ILocationDao locationDao = (LocationDao)ctx.GetObject("MyLocationDao");
+        private IShipmentDao shipmentDao = (ShipmentDao)ctx.GetObject("MyShipmentDao");
 
-        public static LocationImpl Build()
+        public static ShipmentImpl Build()
         {
-            return new LocationImpl();
+            return new ShipmentImpl();
+        }
+        public Shipment GetShipment(int id)
+        {
+            return shipmentDao.GetShipment(id);
         }
 
-        public IList<Location> GetAllLocations()
+        public IList<Shipment> GetShipments()
         {
-            var locations = locationDao.getLocations();
-            return locations;
+            return shipmentDao.GetShipments();
         }
     }
 }

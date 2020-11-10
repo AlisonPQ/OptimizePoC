@@ -63,10 +63,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cast\CityCast.cs" />
+    <Compile Include="Cast\LocationCast.cs" />
+    <Compile Include="Cast\RequestCast.cs" />
+    <Compile Include="Cast\ShipmentCast.cs" />
     <Compile Include="CityDao.cs" />
     <Compile Include="LocationDao.cs" />
+    <Compile Include="RequestDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionFactory.cs" />
+    <Compile Include="ShipmentDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -93,10 +99,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Entities\Load.hbm.xml" />
-    <Content Include="Entities\Request.hbm.xml" />
-    <Content Include="Entities\Shipment.hbm.xml" />
-    <Content Include="Entities\ShipmentLoad.hbm.xml" />
-    <Content Include="Entities\ShipmentRequest.hbm.xml" />
+    <EmbeddedResource Include="Entities\Request.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entities\Shipment.hbm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

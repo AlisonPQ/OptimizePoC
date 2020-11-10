@@ -8,10 +8,14 @@ namespace OptimizePoC.Models
 {
     public class Location
     {
+        public Location()
+        {
+            this.City = new City();
+        }
         public virtual int LocationId { get; set; }
         public virtual decimal Latitude { get; set; }
         public virtual decimal Longitude { get; set; }
         public virtual string Address { get; set; }
-        //public virtual City City { get; set; }
+        public virtual City City { get; set; }
     }
 }
